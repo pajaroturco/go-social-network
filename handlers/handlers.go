@@ -5,6 +5,9 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/pajaroturco/go-social-network/middlewares"
+	"github.com/pajaroturco/go-social-network/routes"
+
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -12,6 +15,8 @@ import (
 /* Manejadores set de puerto handler y pongo a escuchar el servidor */
 func Manejadores() {
 	router := mux.NewRouter()
+
+	router.HandleFunc("/registro", middlewares.ChequeoDB(routes.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
