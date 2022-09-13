@@ -10,6 +10,7 @@ import (
 
 /* Registro es la func para crear un usuario en mongo */
 func Registro(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Content-Type", "application/json")
 	var t models.Usuario
 	err := json.NewDecoder(r.Body).Decode(&t)
 	if err != nil {
