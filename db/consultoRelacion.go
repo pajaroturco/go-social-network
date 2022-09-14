@@ -23,8 +23,8 @@ func ConsultoRelacion(t models.Relacion) (bool, error) {
 	}
 
 	var resultado models.Relacion
-	fmt.Println(resultado)
 	err := col.FindOne(ctx, condicion).Decode(&resultado)
+	fmt.Println(resultado)
 	if err != nil {
 		fmt.Println(err.Error())
 		return false, err
