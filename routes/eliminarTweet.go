@@ -6,6 +6,7 @@ import (
 	"github.com/pajaroturco/go-social-network/db"
 )
 
+/*EliminarTweet router para eliminar tweet*/
 func EliminarTweet(w http.ResponseWriter, r *http.Request) {
 
 	ID := r.URL.Query().Get("id")

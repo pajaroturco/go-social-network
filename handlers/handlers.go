@@ -24,6 +24,12 @@ func Manejadores() {
 	router.HandleFunc("/tweets", middlewares.ChequeoDB(middlewares.ValidaJWT(routes.LeoTweets))).Methods("GET")
 	router.HandleFunc("/tweet", middlewares.ChequeoDB(middlewares.ValidaJWT(routes.EliminarTweet))).Methods("DELETE")
 
+	router.HandleFunc("/avatar", middlewares.ChequeoDB(middlewares.ValidaJWT(routes.SubirAvatar))).Methods("POST")
+	router.HandleFunc("/avatar", middlewares.ChequeoDB(routes.ObtenerAvatar)).Methods("GET")
+
+	router.HandleFunc("/banner", middlewares.ChequeoDB(middlewares.ValidaJWT(routes.SubirBanner))).Methods("POST")
+	router.HandleFunc("/banner", middlewares.ChequeoDB(routes.ObtenerBanner)).Methods("GET")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "9090"

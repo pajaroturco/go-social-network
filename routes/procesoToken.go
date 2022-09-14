@@ -29,7 +29,7 @@ func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
 	})
 	if err == nil {
 		_, encontrado, _ := db.ChequeoUsuarioExistente(claims.Email)
-		if encontrado == true {
+		if encontrado {
 			Email = claims.Email
 			IDUsuario = claims.ID.Hex()
 		}
