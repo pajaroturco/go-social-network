@@ -1,0 +1,31 @@
+version: "3.8"
+networks:
+    default:
+        driver: bridge
+services:
+  web:
+    build:
+      context: .
+      # Correct the path to your Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "9191:3000"
+    # Important to bind/mount your codebase dir to /app dir for live reload
+    volumes:
+      - ./:/app
+    networks:
+      - default
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongo-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: twitter
+    ports:
+        - "27017:27017"
+    volumes:
+        - ./data/db:/data/db
+    networks:
+        - default

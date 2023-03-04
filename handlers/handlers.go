@@ -39,7 +39,7 @@ func Manejadores() {
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
-		PORT = "9090"
+		PORT = "3000"
 	}
 	handler := cors.AllowAll().Handler(router)
 	log.Fatal(http.ListenAndServe(":"+PORT, handler))

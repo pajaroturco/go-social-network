@@ -11,8 +11,8 @@ import (
 /*MongoCN objeto de conexion a base de datos*/
 var MongoCN = ConectarDB()
 
-//var clientOptions = options.Client().ApplyURI("mongodb://localhost:27017/twitter")
-var clientOptions = options.Client().ApplyURI("mongodb+srv://pajaro:p4j4r0@cluster0.9vgnjdm.mongodb.net/twitter")
+// var clientOptions = options.Client().ApplyURI("mongodb://localhost:27017/twitter")
+var clientOptions = options.Client().ApplyURI("mongodb://root:example@mongo-server/twitter/?authSource=admin")
 
 /*ConectarDB Funcion para conectar la base de datos*/
 func ConectarDB() *mongo.Client {
