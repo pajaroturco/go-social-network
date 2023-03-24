@@ -3,6 +3,18 @@ networks:
     backend:
         driver: bridge
 services:
+  web:
+    build: ./frontend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - NODE_ENV=development
+    networks:
+      - backend
+    depends_on:
+      - api
   api:
     image: cosmtrek/air
     # working_dir value has to be the same of mapped volume
@@ -24,6 +36,6 @@ services:
     ports:
         - "27017:27017"
     volumes:
-        - ../../db/data_mongo:/data/db
+        - ../db/data_mongo:/data/db
     networks:
         - backend

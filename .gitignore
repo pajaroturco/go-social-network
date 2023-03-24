@@ -4,5 +4,6 @@ backend/tmp/main
 backend/tmp/*
 backend/uploads/*
 backend/.env
+frontend/.env
 ```
 ```
