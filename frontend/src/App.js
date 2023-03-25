@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SignInSignUp from './page/SignInSignUp';
 
-class App extends Component {
-  render() {
+
+export default function App() {
+
+  const [user, setUser] = useState({name: 'John'});
+
+  if (user) {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <SignInSignUp />
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <h1>Hi Stranger</h1>
       </div>
     );
   }
-}
 
-export default App;
+}
